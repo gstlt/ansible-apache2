@@ -10,9 +10,9 @@ apache2_vhost:
     document_root: /var/www
     server_admin: "root@{{ansible_hostname}}"
   #   aliases:
-  #     - /contents /home/softline/contents
+  #     - /contents /var/www/application-root/src/contents
   #   directory:
-  #     - path: /home/softline/kulka-frontend
+  #     - path: /var/www/application-root/src/contents
   #       options: "-Indexes +FollowSymLinks"
   #       override: "All"
   #       grant_lines:
