@@ -1,0 +1,6 @@
+---
+
+- name: Disable default vhost
+  command: a2dissite 000-default removes=/etc/apache2/sites-enabled/000-default.conf
+  notify:
+    - Reload Apache

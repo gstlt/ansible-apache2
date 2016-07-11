@@ -1,0 +1,29 @@
+---
+
+apache2_default_port: 80
+
+apache2_vhost:
+  - name: "{{ansible_hostname}}"
+    vhost_name: "{{ansible_hostname}}"
+    vhost_alias:
+      - "{{ansible_fqdn}}"
+    document_root: /var/www
+    server_admin: "root@{{ansible_hostname}}"
+  #   aliases:
+  #     - /contents /home/softline/contents
+  #   directory:
+  #     - path: /home/softline/kulka-frontend
+  #       options: "-Indexes +FollowSymLinks"
+  #       override: "All"
+  #       grant_lines:
+  #         - "Require all granted"
+  #         - "Allow from 127.0"
+  #   location:
+  #     - uri: /
+  #       options: "Indexes FollowSymLinks"
+  #   error_log: "${APACHE_LOG_DIR}/error.log"
+  #   access_log: "${APACHE_LOG_DIR}/access.log combined"
+  # - name: test
+  #   vhost_name: 'test.local'
+  #   document_root: /var/www
+  #   server_admin: "root@{{ansible_hostname}}"

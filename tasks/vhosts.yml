@@ -1,0 +1,20 @@
+---
+
+- name: VHosts configuration
+  template:
+    src: vhost.j2
+    dest: "/etc/apache2/sites-available/{{ item['name'] }}.conf"
+    owner: "root"
+    group: "root"
+    mode: 0640
+  with_items:
+    - "{{apache2_vhost}}"
+  notify:
+  - Reload Apache
+
+- name: Enable vhost
+  command: a2ensite {{item['name']}} creates=/etc/apache2/sites-enabled/{{item['name']}}.conf
+  with_items:
+    - "{{apache2_vhost}}"
+  notify:
+  - Reload Apache

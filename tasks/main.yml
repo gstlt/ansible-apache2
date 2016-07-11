@@ -1,0 +1,8 @@
+---
+
+- include: service.yml
+
+- include: cleanup.yml
+
+- include: vhosts.yml
+
